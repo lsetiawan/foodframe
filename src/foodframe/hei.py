@@ -1,4 +1,4 @@
-import categories as cats
+from . import categories as cats
 import pandas as pd
 
 

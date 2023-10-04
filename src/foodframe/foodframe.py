@@ -1,6 +1,6 @@
 import pandas as pd
-import hei
-import nutrition as nutri
+from . import hei
+from . import nutrition as nutri
 
 
 def convert_to_100g(row):

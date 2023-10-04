@@ -1,0 +1,72 @@
+[build-system]
+requires = ["hatchling", "hatch-vcs"]
+build-backend = "hatchling.build"
+
+[project]
+name = "foodframe"
+dynamic = ["version"]
+description = "Standardize. Analyze. Impact."
+readme = "README.md"
+license = "MIT"
+authors = [
+  { name = "Tushar Dalmia, Annie K. Lamar", email = "kalamar@stanford.edu" },
+]
+requires-python = ">=3.8"
+classifiers = [
+    # Chose either "3 - Alpha", "4 - Beta" or "5 - Production/Stable" as the current state of your package
+    'Development Status :: 3 - Alpha',
+    'Intended Audience :: Developers',
+    'Topic :: Software Development :: Build Tools',
+    'Topic :: Software Development :: Libraries :: Python Modules',
+    'License :: OSI Approved :: MIT License',
+    'Programming Language :: Python :: 3',
+    'Programming Language :: Python :: 3.8',
+    'Programming Language :: Python :: 3.9',
+    'Programming Language :: Python :: 3.10',
+    'Programming Language :: Python :: 3.11',
+]
+keywords = ['Food', 'foodbanks', 'nutrition', 'feeding america', 'hei']
+dependencies = [
+    "pandas"
+]
+
+[project.optional-dependencies]
+all = [
+  "foodframe[docs,lint,test]",
+]
+docs = [
+    "sphinx",
+]
+lint = [
+    "black",
+    "check-manifest",
+    "flake8",
+    "flake8-builtins",
+    "flake8-comprehensions",
+    "flake8-mutable",
+    "flake8-print",
+    "isort",
+    "mypy",
+    "pre-commit",
+    "pylint",
+]
+test = [
+    "pytest",
+    "pytest-cov",
+    "pytest-flake8",
+    "pytest-mock",
+    "pytest-xdist",
+    "pytest-benchmark",
+]
+
+[project.urls]
+Homepage = "https://github.com/annieklamar/foodframe"
+
+[tool.hatch.version]
+source = "vcs"
+
+[tool.hatch.build.hooks.vcs]
+version-file = "src/foodframe/version.py"
+
+[tool.hatch.version.raw-options]
+local_scheme = "no-local-version"
